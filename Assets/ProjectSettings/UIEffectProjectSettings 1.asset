@@ -21,19 +21,11 @@ MonoBehaviour:
     m_OptionalShaders:
     - key: Hidden/UI/Default (SoftMaskable)
       value: Hidden/UI/Default (UIEffect)
-<<<<<<< HEAD
-    m_Asset: {fileID: 1650672213757327619}
-    m_RegisteredShaders: []
-    m_ErrorOnUnregisteredVariant: 0
-    m_UnregisteredVariants: []
---- !u!200 &1650672213757327619
-=======
     m_Asset: {fileID: 7789907704800035126}
     m_RegisteredShaders: []
     m_ErrorOnUnregisteredVariant: 0
     m_UnregisteredVariants: []
 --- !u!200 &7789907704800035126
->>>>>>> origin/main
 ShaderVariantCollection:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
