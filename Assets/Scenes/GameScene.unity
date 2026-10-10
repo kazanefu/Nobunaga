@@ -514,6 +514,10 @@ PrefabInstance:
       value: ArrowSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 4825688763364503725, guid: 1ee2b61bb77c80e40848830852ad679c, type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 2377697677165858119, guid: 7479334d4d400e4449974150f37b9046, type: 3}
+    - target: {fileID: 4825688763364503725, guid: 1ee2b61bb77c80e40848830852ad679c, type: 3}
       propertyPath: stageSize.x
       value: 50
       objectReference: {fileID: 0}
@@ -632,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 736685149}
     - target: {fileID: 9006231640047068690, guid: f2da66e494ccd1c40be35aaeaaa56229, type: 3}
       propertyPath: m_VersionIndex
-      value: 1957
+      value: 1960
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
