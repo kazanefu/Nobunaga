@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,14 +24,27 @@ public class GameManager : MonoBehaviour
     private float _gameTimer = 0f;
     public GameState CurrentGameState { get; private set; } = GameState.Title;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+    private void Update()
     {
         TickTimers();
     }
@@ -57,9 +71,9 @@ public class GameManager : MonoBehaviour
     }
     public void LoadGameScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(gameSceneName);
         CurrentGameState = GameState.Countdown;
         _gameStartCountdown = countdownMaxTime;
+        SceneManager.LoadScene(gameSceneName);
     }
 
     public void StartGame()
@@ -71,13 +85,13 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         CurrentGameState = GameState.Ending;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(endingSceneName);
+        SceneManager.LoadScene(endingSceneName);
     }
 
     public void LoadTitleScene()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(titleSceneName);
         CurrentGameState = GameState.Title;
+        SceneManager.LoadScene(titleSceneName);
     }
 
 
