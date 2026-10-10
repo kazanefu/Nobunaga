@@ -718,6 +718,14 @@ PrefabInstance:
       propertyPath: fireLifetime
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 8939682402881745472, guid: 21b69509cbf6a594e9d11ad6573c72ac, type: 3}
+      propertyPath: fireTypes.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 8001458065512563085, guid: 8e3ece36a4be2d1448be78a1f75adf1f, type: 3}
+    - target: {fileID: 8939682402881745472, guid: 21b69509cbf6a594e9d11ad6573c72ac, type: 3}
+      propertyPath: fireTypes.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 4321046635328028723, guid: 93644808689ecc048ace488b7ada8c80, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

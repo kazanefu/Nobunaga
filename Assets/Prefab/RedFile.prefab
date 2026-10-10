@@ -43754,6 +43754,8 @@ GameObject:
   - component: {fileID: 3251304679563398054}
   - component: {fileID: 3890378184172364350}
   - component: {fileID: 8602638431992364898}
+  - component: {fileID: 2920407859916218232}
+  - component: {fileID: 3612675781806489896}
   m_Layer: 0
   m_Name: RedFile
   m_TagString: Untagged
@@ -48694,6 +48696,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2920407859916218232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001458065512563085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63412d732bb78f4459a48a7ba79ab24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fire
+  reward: 1
+  shrinkSpeed: 0.9
+  minimumScale: 0.9
+--- !u!135 &3612675781806489896
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001458065512563085}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8744219040533771808
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
         public int hp;
         public int level;
     }
-    [SerializeField] private PlayerStatus playerStatus;
+    [SerializeField] public PlayerStatus playerStatus;
     [SerializeField] private Transform water;
     private int previousLevel = 0;
     [SerializeField]
