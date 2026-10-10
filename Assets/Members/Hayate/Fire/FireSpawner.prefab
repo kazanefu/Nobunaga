@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3472362300561803942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8939682402881745471}
+  - component: {fileID: 8939682402881745472}
+  m_Layer: 0
+  m_Name: FireSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8939682402881745471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472362300561803942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8939682402881745472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472362300561803942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f388d222e599ef24aa90f5fd8fccebcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireSpawner
+  normalFirePrefab: {fileID: 1400443036304787627, guid: 11f9e6d3c7c551a4cb03376c79eb54d5, type: 3}
+  blueFirePrefab: {fileID: 3783179582225597474, guid: a8cbc050d141aaa4ca6ce8d5a3964dd5, type: 3}
+  player: {fileID: 0}
+  normalFireProbability: 1
+  blueFireProbability: 1
+  firePredicatorPrefab: {fileID: 4289674829308814852, guid: 5393c17b656c5b34f8d2308fa11a5adb, type: 3}
+  fireTypes:
+  - prefab: {fileID: 1400443036304787627, guid: 11f9e6d3c7c551a4cb03376c79eb54d5, type: 3}
+    probability: 3
+  - prefab: {fileID: 3783179582225597474, guid: a8cbc050d141aaa4ca6ce8d5a3964dd5, type: 3}
+    probability: 1
+  stageSize: {x: 50, y: 50}
+  stageCenter: {x: 0, y: 0}
+  minFireSize: 1
+  maxFireSize: 2
+  warningDuration: 1.5
+  fireLifetime: 5
+  minSpawnInterval: 2
+  maxSpawnInterval: 4
+  difficultyRampDuration: 60
+  initialPoolSize: 5
+  maxPoolSize: 50

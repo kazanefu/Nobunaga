@@ -38,4 +38,12 @@ public class Player : MonoBehaviour
         }
         water.localScale = new Vector3(scale, 1.0f, scale);
     }
+
+    public void AddReward(int amount)
+    {
+        if (amount > 0)
+        {
+            playerStatus.level += amount;
+        }
+    }
 }
