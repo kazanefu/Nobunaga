@@ -5,11 +5,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class TitleController : MonoBehaviour
 {
-    [SerializeField] private string _mainSceneName = "MainScene";
+    [SerializeField] private string _sceneName = "MainScene";
     private InputAction _inputAction;
     private InputSystem_Actions _actions;
 
-    private float _clickTime = default;
     private void Awake()    
     {
         _actions = new InputSystem_Actions();
@@ -28,9 +27,9 @@ public class TitleController : MonoBehaviour
 
     private void Update()
     {
+        if (_sceneName == "TitleScene") return;
         if(_inputAction.WasPressedThisFrame())
         {
-            print("Click");
             ClickStart();
         }
     }
@@ -39,7 +38,7 @@ public class TitleController : MonoBehaviour
         LMotion.Create(0f,0f,0.4f)
             .WithOnComplete(() =>
             {
-                SceneManager.LoadScene(_mainSceneName);
+                SceneManager.LoadScene(_sceneName);
             })
             .RunWithoutBinding()
             .AddTo(gameObject);
