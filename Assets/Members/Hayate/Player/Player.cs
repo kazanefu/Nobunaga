@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerStatus playerStatus;
     [SerializeField] private Transform water;
     private int previousLevel = 0;
+    [SerializeField]
+    private float incleaseRate = 1.1f; // 10% increase in water scale for each level
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +25,7 @@ public class Player : MonoBehaviour
         if (playerStatus.level != previousLevel)
         {
             // 10% increase in water scale for each level
-            SetWaterScale(1f + playerStatus.level * 0.1f);
+            SetWaterScale(1f + (playerStatus.level - 1) * incleaseRate);
             previousLevel = playerStatus.level;
         }
     }
