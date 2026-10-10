@@ -1,3 +1,4 @@
+using UnityEngine.Pool;
 using UnityEngine;
 
 public class ArrowSpawner : MonoBehaviour
@@ -13,12 +14,23 @@ public class ArrowSpawner : MonoBehaviour
     [SerializeField, Min(0f)] private float difficultyRampDuration = 60f;
     [SerializeField, Min(0f)] private float arrowLifetime = 5f;
     [SerializeField, Min(0f)] private float targetEdgeMargin = 0.5f;
+    [SerializeField, Min(1)] private int initialPoolSize = 10;
+    [SerializeField, Min(1)] private int maxPoolSize = 100;
 
     private float elapsedTime;
     private float spawnTimer;
+    private ObjectPool<GameObject> arrowPool;
 
     private void Start()
     {
+        arrowPool = new ObjectPool<GameObject>(
+            CreateArrow,
+            arrow => arrow.SetActive(true),
+            arrow => arrow.SetActive(false),
+            arrow => Destroy(arrow),
+            true,
+            initialPoolSize,
+            Mathf.Max(initialPoolSize, maxPoolSize));
         ScheduleNextArrow();
     }
 
@@ -53,13 +65,35 @@ public class ArrowSpawner : MonoBehaviour
         }
 
         Quaternion rotation = Quaternion.LookRotation(direction.normalized, transform.up);
-        GameObject arrow = Instantiate(arrowPrefab, spawnPosition, rotation);
+        GameObject arrow = arrowPool.Get();
+        arrow.transform.SetPositionAndRotation(spawnPosition, rotation);
         Rigidbody arrowRb = arrow.GetComponent<Rigidbody>();
         if (arrowRb != null)
         {
+            arrowRb.linearVelocity = Vector3.zero;
+            arrowRb.angularVelocity = Vector3.zero;
             arrowRb.AddForce(direction.normalized * emitForce, ForceMode.Impulse);
         }
-        Destroy(arrow, arrowLifetime);
+        StartCoroutine(ReturnArrowAfterLifetime(arrow, arrowLifetime));
+    }
+
+    private GameObject CreateArrow()
+    {
+        return Instantiate(arrowPrefab);
+    }
+
+    private System.Collections.IEnumerator ReturnArrowAfterLifetime(GameObject arrow, float lifetime)
+    {
+        yield return new WaitForSeconds(lifetime);
+        if (arrow != null && arrow.activeSelf)
+        {
+            arrowPool.Release(arrow);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        arrowPool?.Clear();
     }
 
     private void ScheduleNextArrow()
