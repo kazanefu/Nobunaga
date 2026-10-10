@@ -2,17 +2,26 @@ using LitMotion;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 public class TitleController : MonoBehaviour
 {
     [SerializeField] private string _sceneName = "MainScene";
     private InputAction _inputAction;
     private InputSystem_Actions _actions;
 
+    private GameManager _gameManager;
     private void Awake()    
     {
         _actions = new InputSystem_Actions();
         _inputAction = _actions.UI.Click;
+        LMotion.Create(0f, 1f, 0.4f)
+            .WithOnComplete(() =>
+            {
+                GameObject targetObject = GameObject.Find("GameManager");
+                _gameManager = targetObject.GetComponent<GameManager>();
+            })
+            .WithEase(Ease.OutBack)
+            .RunWithoutBinding()
+            .AddTo(gameObject);
     }
 
     private void OnEnable()
@@ -38,7 +47,14 @@ public class TitleController : MonoBehaviour
         LMotion.Create(0f,0f,0.4f)
             .WithOnComplete(() =>
             {
-                SceneManager.LoadScene(_sceneName);
+                if (_sceneName == "GameScene")
+                {
+                    _gameManager.LoadGameScene();
+                }
+                else
+                {
+                    _gameManager.LoadTitleScene();
+                }
             })
             .RunWithoutBinding()
             .AddTo(gameObject);
