@@ -33985,6 +33985,8 @@ GameObject:
   - component: {fileID: 1376376900664236919}
   - component: {fileID: 6547376367955365898}
   - component: {fileID: 2592818338922812193}
+  - component: {fileID: 8392809653132097938}
+  - component: {fileID: 5563837088271664388}
   m_Layer: 0
   m_Name: BlueFire
   m_TagString: Untagged
@@ -38925,6 +38927,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &8392809653132097938
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321046635328028723}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5563837088271664388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321046635328028723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63412d732bb78f4459a48a7ba79ab24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fire
+  reward: 2
+  shrinkSpeed: 0.9
+  minimumScale: 0.9
 --- !u!1 &5226137543321831965
 GameObject:
   m_ObjectHideFlags: 0
