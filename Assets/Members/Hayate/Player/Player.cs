@@ -12,11 +12,15 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform water;
     private int previousLevel = 0;
     [SerializeField]
+    private int initialHp = 100; // Initial HP for the player
+    [SerializeField]
     private float incleaseRate = 1.1f; // 10% increase in water scale for each level
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        playerStatus.hp = initialHp;
+        previousLevel = playerStatus.level;
+        SetWaterScale(1f + (playerStatus.level - 1) * incleaseRate);
     }
 
     // Update is called once per frame
@@ -44,6 +48,16 @@ public class Player : MonoBehaviour
         if (amount > 0)
         {
             playerStatus.level += amount;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        playerStatus.hp -= damage;
+        if (playerStatus.hp <= 0)
+        {
+            // Handle player death
+            Debug.Log("Player has died.");
         }
     }
 }
