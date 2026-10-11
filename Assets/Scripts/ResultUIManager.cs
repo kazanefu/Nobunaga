@@ -1,6 +1,4 @@
-using System;
 using LitMotion;
-using LitMotion.Extensions;
 using TMPro;
 using UnityEngine;
 
@@ -52,7 +50,7 @@ public class ResultUIManager : MonoBehaviour
             bool isNew = i == result.NewRankIndex;
             TextMeshProUGUI row = _rankRows[i];
 
-            row.text = $"{i + 1},  {TimeFormat.Format(result.Scores[i])}" + (isNew ? NewTag : "");
+            row.text = $" {TimeFormat.Format(result.Scores[i])}" + (isNew ? NewTag : "");
             row.color = isNew ? _highlightColor : _normalColor;
             row.alpha = 0f;
 
