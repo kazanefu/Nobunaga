@@ -60,4 +60,14 @@ public class Player : MonoBehaviour
             Debug.Log("Player has died.");
         }
     }
+
+    public void CheckHealth()
+    {
+        if (playerStatus.hp <= 0)
+        {
+            // Handle player death
+            Debug.Log("Player has died.");
+            GameManager.Instance.EndGame();
+        }
+    }
 }

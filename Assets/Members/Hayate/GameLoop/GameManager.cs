@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private float _gameTimer = 0f;
     public GameState CurrentGameState { get; private set; } = GameState.Title;
 
+    public Player Player { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -69,6 +71,10 @@ public class GameManager : MonoBehaviour
     {
         return Mathf.CeilToInt(_gameStartCountdown);
     }
+    public float GetGameTimer()
+    {
+        return _gameTimer;
+    }
     public void LoadGameScene()
     {
         CurrentGameState = GameState.Countdown;
@@ -79,6 +85,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         CurrentGameState = GameState.Playing;
+        Player = FindObjectOfType<Player>();
         _gameTimer = 0f;
     }
 
@@ -92,7 +99,6 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameState.Title;
         SceneManager.LoadScene(titleSceneName);
+        Player = null;
     }
-
-
 }
