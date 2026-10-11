@@ -34,6 +34,8 @@ public class FireSpawner : MonoBehaviour
     private float elapsedTime;
     private readonly Dictionary<GameObject, ObjectPool<GameObject>> pools = new();
 
+    private const float FIRE_PREDICATIOR_OFFSET_POSITION_Y = 1.5f;
+
     private void Start()
     {
         ScheduleNextFire();
@@ -60,8 +62,10 @@ public class FireSpawner : MonoBehaviour
 
         if (firePredicatorPrefab != null)
         {
+            Vector3 firePredicatorPosition = position;
+            firePredicatorPosition.y += FIRE_PREDICATIOR_OFFSET_POSITION_Y;
             warning = GetFromPool(firePredicatorPrefab);
-            warning.transform.SetPositionAndRotation(position, transform.rotation);
+            warning.transform.SetPositionAndRotation(firePredicatorPosition, transform.rotation);
             warning.transform.localScale = Vector3.Scale(warning.transform.localScale, new Vector3(size, 1f, size));
         }
 
