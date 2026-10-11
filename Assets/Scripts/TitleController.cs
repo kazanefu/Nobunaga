@@ -63,7 +63,6 @@ public class TitleController : MonoBehaviour
     public void ClickExit()
     {
         Application.Quit();
-        EditorApplication.isPlaying = false;
     }
 
 }

@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private float countdownMaxTime = 3f; // Countdown duration in seconds
     private float _gameStartCountdown = 3f; // Countdown duration in seconds
     private float _gameTimer = 0f;
+
+    public float GameTimer => _gameTimer;
     public GameState CurrentGameState { get; private set; } = GameState.Title;
 
     public Player Player { get; private set; }
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         if (CurrentGameState == GameState.Countdown)
         {
-            _gameStartCountdown -= Time.deltaTime;
+            _gameStartCountdown -= Time.unscaledDeltaTime;
             if (_gameStartCountdown <= 0f)
             {
                 StartGame();
@@ -85,7 +87,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         CurrentGameState = GameState.Playing;
-        Player = FindObjectOfType<Player>();
+        Player = FindFirstObjectByType<Player>();
         _gameTimer = 0f;
     }
 
