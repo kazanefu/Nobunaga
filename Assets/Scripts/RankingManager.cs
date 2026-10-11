@@ -16,7 +16,7 @@ public readonly struct RankingResult
 
 public class RankingManager : MonoBehaviour
 {
-    private const string DefaultRanking = "6000,4500,3000,1500,500"; // 60秒, 45秒, 30秒, 15秒, 5秒
+    private const string DefaultRanking = "0000,0000,0000,0000,0000"; 
     public RankingResult RankingUpdate(string rankingKey, int newScore)
     {
         int[] ranking = RankingLoad(rankingKey);

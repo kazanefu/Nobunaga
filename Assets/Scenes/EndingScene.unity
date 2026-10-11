@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ResultManager
   _scoreManager: {fileID: 533789632}
   _rankingManager: {fileID: 1151003213}
-  _rankingKey: testRanking
+  _rankingKey: Ranking
   _rankRows:
   - {fileID: 555090002}
   - {fileID: 1533352247}
