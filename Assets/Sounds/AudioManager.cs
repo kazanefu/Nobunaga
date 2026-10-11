@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
 
     private readonly Dictionary<string, AudioClip> bgmClipMap = new(StringComparer.Ordinal);
     private readonly Dictionary<string, AudioClip> seClipMap = new(StringComparer.Ordinal);
+    private readonly Dictionary<string, AudioSource> loopSeSources = new(StringComparer.Ordinal);
     private AudioSource bgmSource;
     private AudioSource seSource;
     private float bgmVolume;
@@ -126,6 +127,37 @@ public class AudioManager : MonoBehaviour
         seSource.PlayOneShot(clip);
     }
 
+    public void PlayLoopSE(string key)
+    {
+        if (!seClipMap.TryGetValue(key, out AudioClip clip))
+        {
+            Debug.LogWarning($"SE not found: {key}", this);
+            return;
+        }
+
+        PlayLoopSE(key, clip);
+    }
+
+    public void StopLoopSE(string key)
+    {
+        if (!loopSeSources.TryGetValue(key, out AudioSource source))
+        {
+            return;
+        }
+
+        source.Stop();
+        source.clip = null;
+    }
+
+    public void StopAllLoopSE()
+    {
+        foreach (AudioSource source in loopSeSources.Values)
+        {
+            source.Stop();
+            source.clip = null;
+        }
+    }
+
     public void SetBgmVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);
@@ -215,6 +247,11 @@ public class AudioManager : MonoBehaviour
         {
             seSource.volume = IsMuted ? 0f : seVolume;
         }
+
+        foreach (AudioSource source in loopSeSources.Values)
+        {
+            source.volume = IsMuted ? 0f : seVolume;
+        }
     }
 
     private void SaveVolumeSettings()
@@ -227,5 +264,23 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat(BgmVolumeKey, bgmVolume);
         PlayerPrefs.SetFloat(SeVolumeKey, seVolume);
         PlayerPrefs.Save();
+    }
+
+    private void PlayLoopSE(string key, AudioClip clip)
+    {
+        if (!loopSeSources.TryGetValue(key, out AudioSource source))
+        {
+            source = CreateAudioSource($"LoopSE_{key}");
+            source.loop = true;
+            loopSeSources.Add(key, source);
+        }
+
+        if (source.clip == clip && source.isPlaying)
+        {
+            return;
+        }
+
+        source.clip = clip;
+        source.Play();
     }
 }
