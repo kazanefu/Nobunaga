@@ -7,6 +7,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private InputHandler _inputHandler;
     [SerializeField] private Transform waterMuzzle;
+
+    public enum MovementState
+    {
+        Idle,
+        Walk,
+        Run
+    }
+    public MovementState CurrentMovementState { get; private set; } = MovementState.Idle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         float yVelocity = _rb.linearVelocity.y;
         _rb.linearVelocity = _inputHandler.MoveDirection * moveSpeed + new Vector3(0f, yVelocity, 0f);
+        CurrentMovementState = _inputHandler.MoveDirection.sqrMagnitude > 0f ? MovementState.Walk : MovementState.Idle;
     }
 
     private void AimWaterMuzzleAtMouse()

@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameState.Ending;
         SceneManager.LoadScene(endingSceneName);
+        Debug.Log($"Game ended. Total time played: {_gameTimer} seconds.");
     }
 
     public void LoadTitleScene()

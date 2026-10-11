@@ -48711,6 +48711,8 @@ MonoBehaviour:
   reward: 1
   shrinkSpeed: 0.9
   minimumScale: 0.9
+  damagePerTick: 10
+  damageInterval: 1
 --- !u!135 &3612675781806489896
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48726,7 +48728,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
