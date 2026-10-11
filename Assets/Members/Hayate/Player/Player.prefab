@@ -1217,15 +1217,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7929463910441930360, guid: fc84fae83745f6249933018db9e40768, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929463910441930360, guid: fc84fae83745f6249933018db9e40768, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.548
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929463910441930360, guid: fc84fae83745f6249933018db9e40768, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.659
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929463910441930360, guid: fc84fae83745f6249933018db9e40768, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1254,6 +1254,14 @@ PrefabInstance:
     - target: {fileID: 7929463910441930360, guid: fc84fae83745f6249933018db9e40768, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517609615143745990, guid: fc84fae83745f6249933018db9e40768, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517609615143745990, guid: fc84fae83745f6249933018db9e40768, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
