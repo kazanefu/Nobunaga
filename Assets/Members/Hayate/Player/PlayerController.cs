@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         AimWaterMuzzleAtMouse();
+        PlaySound();
     }
 
     void Move()
@@ -34,6 +35,20 @@ public class PlayerController : MonoBehaviour
         float yVelocity = _rb.linearVelocity.y;
         _rb.linearVelocity = _inputHandler.MoveDirection * moveSpeed + new Vector3(0f, yVelocity, 0f);
         CurrentMovementState = _inputHandler.MoveDirection.sqrMagnitude > 0f ? MovementState.Run : MovementState.Idle;
+    }
+
+    private void PlaySound()
+    {
+        if(CurrentMovementState == MovementState.Run)
+        {
+            // Play running sound
+            AudioManager.Instance?.PlayLoopSE("Run");
+        }
+        else if(CurrentMovementState == MovementState.Idle)
+        {
+            // Stop running sound
+            AudioManager.Instance?.StopLoopSE("Run");
+        }
     }
 
     private void AimWaterMuzzleAtMouse()

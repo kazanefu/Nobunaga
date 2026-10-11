@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource seSource;
     private float bgmVolume;
     private float seVolume;
+    private int extinguishingFireCount;
 
     public float BgmVolume => bgmVolume;
     public float SeVolume => seVolume;
@@ -155,6 +156,29 @@ public class AudioManager : MonoBehaviour
         {
             source.Stop();
             source.clip = null;
+        }
+    }
+
+    public void BeginFireExtinguishing()
+    {
+        extinguishingFireCount++;
+        if (extinguishingFireCount == 1)
+        {
+            PlayLoopSE("Water4");
+        }
+    }
+
+    public void EndFireExtinguishing()
+    {
+        if (extinguishingFireCount == 0)
+        {
+            return;
+        }
+
+        extinguishingFireCount--;
+        if (extinguishingFireCount == 0)
+        {
+            StopLoopSE("Water4");
         }
     }
 

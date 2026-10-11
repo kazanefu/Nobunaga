@@ -47,6 +47,8 @@ AudioManager.Instance?.StopLoopSE("Fire");
 AudioManager.Instance?.StopAllLoopSE();
 ```
 
+Fireが1つ以上、水に触れて消火中の間は`Water4`が自動でループ再生されます。消火中のFireが0個になると自動停止するため、Fire側で個別に`Water4`を停止する必要はありません。
+
 ## 音量・ミュート
 
 ```csharp

@@ -16,10 +16,12 @@ public class Fire : MonoBehaviour
     private readonly HashSet<Collider> waterColliders = new();
     private readonly HashSet<Collider> playerColliders = new();
     private bool rewardGranted;
+    private bool isExtinguishing;
     private float damageTimer;
 
     public void Initialize(Vector3 scale, Player targetPlayer, Action releaseAction)
     {
+        StopExtinguishingSound();
         baseScale = scale;
         transform.localScale = baseScale;
         player = targetPlayer;
@@ -28,6 +30,11 @@ public class Fire : MonoBehaviour
         playerColliders.Clear();
         rewardGranted = false;
         damageTimer = 0f;
+    }
+
+    private void OnDisable()
+    {
+        StopExtinguishingSound();
     }
 
     private void Update()
@@ -61,6 +68,10 @@ public class Fire : MonoBehaviour
         if (other.CompareTag("Water"))
         {
             waterColliders.Add(other);
+            if (waterColliders.Count == 1 && !rewardGranted)
+            {
+                StartExtinguishingSound();
+            }
         }
         else if (IsPlayerCollider(other))
         {
@@ -73,6 +84,10 @@ public class Fire : MonoBehaviour
         if (other.CompareTag("Water"))
         {
             waterColliders.Remove(other);
+            if (waterColliders.Count == 0)
+            {
+                StopExtinguishingSound();
+            }
         }
         else if (IsPlayerCollider(other))
         {
@@ -99,6 +114,7 @@ public class Fire : MonoBehaviour
     private void GrantRewardAndRelease()
     {
         rewardGranted = true;
+        StopExtinguishingSound();
         if (player != null)
         {
             player.AddReward(reward);
@@ -112,5 +128,27 @@ public class Fire : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void StartExtinguishingSound()
+    {
+        if (isExtinguishing)
+        {
+            return;
+        }
+
+        isExtinguishing = true;
+        AudioManager.Instance?.BeginFireExtinguishing();
+    }
+
+    private void StopExtinguishingSound()
+    {
+        if (!isExtinguishing)
+        {
+            return;
+        }
+
+        isExtinguishing = false;
+        AudioManager.Instance?.EndFireExtinguishing();
     }
 }

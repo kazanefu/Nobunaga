@@ -335,7 +335,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 26b6fc61531edf14b9a74fffc0a4d2fd, type: 3}
   - key: Water3
     clip: {fileID: 8300000, guid: 9f58d5bffd462f840b40a0ddf48fe9ff, type: 3}
-  initialBgmVolume: 1
+  - key: Water4
+    clip: {fileID: 8300000, guid: 34a5a2d8e379a5a438c12eca3a308e85, type: 3}
+  initialBgmVolume: 0.306
   initialSeVolume: 1
   saveVolumeSettings: 1
 --- !u!1 &454154846
