@@ -8,6 +8,9 @@ public class TitleController : MonoBehaviour
     private InputAction _inputAction;
     private InputSystem_Actions _actions;
 
+    private bool _isClicking = false;
+
+    public bool IsClicking => _isClicking;
     private GameManager _gameManager;
     private void Awake()    
     {
@@ -63,6 +66,7 @@ public class TitleController : MonoBehaviour
     public void ClickExit()
     {
         Application.Quit();
+        EditorApplication.isPlaying = false;
     }
 
 }
