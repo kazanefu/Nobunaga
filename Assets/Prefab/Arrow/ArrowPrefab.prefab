@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4034372980127886254}
   - component: {fileID: 5560493498645719778}
   - component: {fileID: 8391729090899484253}
+  - component: {fileID: 3422137422953322407}
   m_Layer: 0
   m_Name: ArrowPrefab
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 228156907434523663}
@@ -195,6 +196,19 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &3422137422953322407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377697677165858119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9084ac22114cd4a47b47c2a9aca9ea61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Arrow
+  damage: 20
 --- !u!1001 &333312564296604644
 PrefabInstance:
   m_ObjectHideFlags: 0

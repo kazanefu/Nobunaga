@@ -3,25 +3,13 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] private int damage = 20;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTrigerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        Player player = other.GetComponentInParent<Player>();
+        if (player != null)
         {
-            Player player = GameManager.Instance.Player;
-            if (player == null) return;
-            GameManager.Instance.Player.TakeDamage((int)damage);
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
     }
