@@ -92,7 +92,9 @@ public class TitleController : MonoBehaviour
     public void ClickExit()
     {
         Application.Quit();
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
+#endif
     }
 
 }
