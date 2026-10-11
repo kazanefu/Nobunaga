@@ -1226,10 +1226,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b2d21a8eff99a7e4cb52fcddc2183fdd, type: 3}
   - {fileID: 21300000, guid: dbfd1a2a4078c76428bed6b8db4620b7, type: 3}
   _weaponImage: {fileID: 3695747213833319457}
-  _weaponStages:
-  - fromLevel: 5
+  _toolSprites:
+  - tool: 0
+    sprite: {fileID: 21300000, guid: db6bd6dc8f6afa642804fc97d57b871c, type: 3}
+  - tool: 1
     sprite: {fileID: 21300000, guid: 1df93edd661e903489e2b4526eff93b2, type: 3}
-  - fromLevel: 10
+  - tool: 2
     sprite: {fileID: 21300000, guid: cdf4aeb28f314014aa9bb0f25d22fda2, type: 3}
   _waterFill: {fileID: 5435606863506012598}
   _fillTime: 0.7
