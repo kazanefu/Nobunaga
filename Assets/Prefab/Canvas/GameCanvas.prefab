@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -690, y: -378.03427}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 796.653, y: -399.81702}
+  m_SizeDelta: {x: 203.047, y: 203.047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &113636338104309267
 CanvasRenderer:
@@ -219,8 +219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -691.9047, y: -376.4318}
-  m_SizeDelta: {x: 119.621, y: 119.621}
+  m_AnchoredPosition: {x: 792.7849, y: -396.56403}
+  m_SizeDelta: {x: 242.887, y: 242.887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5326878463248140197
 CanvasRenderer:
@@ -470,8 +470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -690.4, y: -380.7}
-  m_SizeDelta: {x: 60.785, y: 57.926}
+  m_AnchoredPosition: {x: 795.841, y: -405.23}
+  m_SizeDelta: {x: 123.422, y: 117.618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2864688323912706419
 CanvasRenderer:
@@ -724,8 +724,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -826, y: -375}
-  m_SizeDelta: {x: 143.269, y: 72.164}
+  m_AnchoredPosition: {x: 539.08984, y: -405}
+  m_SizeDelta: {x: 243.45, y: 122.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &824367005720882012
 CanvasRenderer:
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_ColorGlow: 0
   m_SamplingFilter: 0
-  m_SamplingIntensity: 0.5
+  m_SamplingIntensity: 0
   m_SamplingWidth: 1
   m_SamplingScale: 1
   m_TransitionFilter: 0
@@ -843,14 +843,14 @@ MonoBehaviour:
   m_BlendType: 1
   m_SrcBlendMode: 1
   m_DstBlendMode: 10
-  m_ShadowMode: 0
-  m_ShadowDistance: {x: 1, y: -1}
+  m_ShadowMode: 3
+  m_ShadowDistance: {x: 5, y: -5}
   m_ShadowIteration: 1
-  m_ShadowFade: 0.9
+  m_ShadowFade: 0.5
   m_ShadowMirrorScale: 0.5
   m_ShadowBlurIntensity: 1
   m_ShadowColorFilter: 4
-  m_ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  m_ShadowColor: {r: 4, g: 4, b: 4, a: 1}
   m_ShadowColorGlow: 0
   m_GradationMode: 0
   m_GradationIntensity: 1
