@@ -23,6 +23,10 @@ public class CountdownSpriteUI : MonoBehaviour
     [SerializeField] private float _startScale = 1.6f;
     [SerializeField] private float _startHoldTime = 0.8f;
 
+    [Header("SE(AudioManager の Se Clips に登録したキー)")]
+    [SerializeField] private string _countSeKey = "Countdown1";  // 参・弐・壱が出るたび
+    [SerializeField] private string _startSeKey = "Countdown2";  // 「始め」が出る瞬間
+
     private Image _image;
     private int _lastCount = -1;
     private MotionHandle _scaleHandle;
@@ -46,6 +50,7 @@ public class CountdownSpriteUI : MonoBehaviour
             if (count == _lastCount) return;
             _lastCount = count;
             Show(count);
+            PlaySe(_countSeKey);
             return;
         }
 
@@ -53,6 +58,7 @@ public class CountdownSpriteUI : MonoBehaviour
         {
             _lastCount = 0;
             Show(0);
+            PlaySe(_startSeKey);
 
             if (_hideHandle.IsActive()) _hideHandle.Cancel();
             _hideHandle = LMotion.Create(0f, 0f, _startHoldTime)
@@ -71,6 +77,14 @@ public class CountdownSpriteUI : MonoBehaviour
 
         _image.enabled = false;
         _lastCount = -1;
+    }
+
+    private void PlaySe(string key)
+    {
+        if (string.IsNullOrEmpty(key)) return;
+        if (AudioManager.Instance == null) return;
+
+        AudioManager.Instance.PlaySE(key);
     }
 
     private Vector3 GetScale(int index)

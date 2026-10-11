@@ -361,6 +361,8 @@ MonoBehaviour:
   _popTime: 1
   _startScale: 1.6
   _startHoldTime: 0.8
+  _countSeKey: Countdown2
+  _startSeKey: Countdown1
 --- !u!1 &3414875703126097601
 GameObject:
   m_ObjectHideFlags: 0
