@@ -323,6 +323,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b97ebf2f1748bf44bbe9bb23c39a4dc4, type: 3}
   - key: Run
     clip: {fileID: 8300000, guid: 124c137d25cb27e4a97697b9cbaec55b, type: 3}
+  - key: Countdown1
+    clip: {fileID: 8300000, guid: 4764622505a30584d946e5b595e7e197, type: 3}
+  - key: Countdown2
+    clip: {fileID: 8300000, guid: 562d6a842d4528d45ba745e3b6d054f1, type: 3}
+  - key: Door
+    clip: {fileID: 8300000, guid: 73f6d00b8d2ace447a30f788db9a3264, type: 3}
+  - key: Water1
+    clip: {fileID: 8300000, guid: cd8c7eb41b3a08d43ac685193f94e9bf, type: 3}
+  - key: Water2
+    clip: {fileID: 8300000, guid: 26b6fc61531edf14b9a74fffc0a4d2fd, type: 3}
+  - key: Water3
+    clip: {fileID: 8300000, guid: 9f58d5bffd462f840b40a0ddf48fe9ff, type: 3}
   initialBgmVolume: 1
   initialSeVolume: 1
   saveVolumeSettings: 1
