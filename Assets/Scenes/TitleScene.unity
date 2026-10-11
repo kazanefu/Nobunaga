@@ -256,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 293571070}
   - component: {fileID: 293571069}
+  - component: {fileID: 293571071}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -294,6 +295,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293571071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293571068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7b3fca0ce7f054baad8ec4844731da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  defaultBgm: {fileID: 8300000, guid: f9fa8749edd0f5c45bfe4179ea453039, type: 3}
+  playDefaultBgmOnAwake: 1
+  bgmClips:
+  - key: Title
+    clip: {fileID: 8300000, guid: f9fa8749edd0f5c45bfe4179ea453039, type: 3}
+  - key: InGame
+    clip: {fileID: 8300000, guid: 06f26c89ad1d92547b62225ef1480f5d, type: 3}
+  - key: Result
+    clip: {fileID: 8300000, guid: 40ee1dae01d8db8408d89d7b9103ca87, type: 3}
+  seClips:
+  - key: Fire
+    clip: {fileID: 8300000, guid: 89353aecc6ba0bc4eb6b93b4cf86d0fc, type: 3}
+  - key: Walk
+    clip: {fileID: 8300000, guid: b97ebf2f1748bf44bbe9bb23c39a4dc4, type: 3}
+  - key: Run
+    clip: {fileID: 8300000, guid: 124c137d25cb27e4a97697b9cbaec55b, type: 3}
+  initialBgmVolume: 1
+  initialSeVolume: 1
+  saveVolumeSettings: 1
 --- !u!1 &454154846
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _sceneName: GameScene
-  _gameManager: {fileID: 293571069}
 --- !u!1 &1225630163
 GameObject:
   m_ObjectHideFlags: 0
