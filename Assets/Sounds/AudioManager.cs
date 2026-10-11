@@ -159,6 +159,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopAllSE()
+    {
+        seSource.Stop();
+        StopAllLoopSE();
+        extinguishingFireCount = 0;
+    }
+
     public void BeginFireExtinguishing()
     {
         extinguishingFireCount++;

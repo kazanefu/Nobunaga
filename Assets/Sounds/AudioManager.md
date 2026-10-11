@@ -59,3 +59,13 @@ AudioManager.Instance?.ToggleMute();
 ```
 
 音量は`PlayerPrefs`に保存されます。保存が不要な場合はInspectorの`saveVolumeSettings`を無効にしてください。
+
+## シーン遷移時のSE停止
+
+シーン遷移前にすべての通常SEとループSEを停止する場合は、次を呼び出します。
+
+```csharp
+AudioManager.Instance?.StopAllSE();
+```
+
+`GameManager`のシーン遷移処理では、この処理が自動的に呼び出されます。BGMは停止せず、遷移先のBGMへ切り替わります。

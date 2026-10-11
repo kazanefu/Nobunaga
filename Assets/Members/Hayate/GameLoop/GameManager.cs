@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameState.Countdown;
         _gameStartCountdown = countdownMaxTime;
+        AudioManager.Instance?.StopAllSE();
         AudioManager.Instance?.PlayBGM("InGame");
         SceneManager.LoadScene(gameSceneName);
     }
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         CurrentGameState = GameState.Ending;
+        AudioManager.Instance?.StopAllSE();
         AudioManager.Instance?.PlayBGM("Result");
         SceneManager.LoadScene(endingSceneName);
         Debug.Log($"Game ended. Total time played: {_gameTimer} seconds.");
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
     public void LoadTitleScene()
     {
         CurrentGameState = GameState.Title;
+        AudioManager.Instance?.StopAllSE();
         AudioManager.Instance?.PlayBGM("Title");
         SceneManager.LoadScene(titleSceneName);
         Player = null;
