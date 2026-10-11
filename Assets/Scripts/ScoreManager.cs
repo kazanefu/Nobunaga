@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private float _debugScore = 1500f;
     private TextMeshProUGUI _scoreText;
 
+    private float _lastSeconds = default;
+
     private MotionHandle _scoreMotion;
     // カウントアップ完了時に、最終スコアを渡して発火
     public event Action<int> OnScoreFinished;
@@ -17,6 +19,9 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         _scoreText = GetComponent<TextMeshProUGUI>();
+        GameManager gm = GameManager.Instance;
+        _lastSeconds = gm.GameTimer;
+        GetScore(_lastSeconds);
     }
 
     private void Start()
