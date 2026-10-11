@@ -6,11 +6,14 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Player player = other.GetComponentInParent<Player>();
-        if (player != null)
+        if (other.CompareTag("Player"))
         {
-            player.TakeDamage(damage);
-            Destroy(gameObject);
+            Player player = GameManager.Instance.Player;
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
     }
 }
