@@ -48709,7 +48709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fire
   reward: 1
-  shrinkSpeed: 0.9
+  shrinkSpeed: 2
   minimumScale: 0.9
   damagePerTick: 10
   damageInterval: 1

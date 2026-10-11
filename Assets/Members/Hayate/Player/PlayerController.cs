@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         float yVelocity = _rb.linearVelocity.y;
         _rb.linearVelocity = _inputHandler.MoveDirection * moveSpeed + new Vector3(0f, yVelocity, 0f);
-        CurrentMovementState = _inputHandler.MoveDirection.sqrMagnitude > 0f ? MovementState.Walk : MovementState.Idle;
+        CurrentMovementState = _inputHandler.MoveDirection.sqrMagnitude > 0f ? MovementState.Run : MovementState.Idle;
     }
 
     private void AimWaterMuzzleAtMouse()
