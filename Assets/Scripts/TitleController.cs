@@ -1,17 +1,40 @@
 using LitMotion;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class TitleController : MonoBehaviour
 {
     [SerializeField] private string _sceneName = "MainScene";
     private InputAction _inputAction;
     private InputSystem_Actions _actions;
 
-    private bool _isClicking = false;
 
-    public bool IsClicking => _isClicking;
+    [SerializeField] private PanelController _howToPanel; 
     private GameManager _gameManager;
+    private static readonly List<RaycastResult> _hits = new List<RaycastResult>();
+
+    // ポインタの下に Button などがあるか
+    private bool IsPointerOverButton()
+    {
+        if (EventSystem.current == null || Pointer.current == null) return false;
+
+        var data = new PointerEventData(EventSystem.current)
+        {
+            position = Pointer.current.position.ReadValue()
+        };
+
+        _hits.Clear();
+        EventSystem.current.RaycastAll(data, _hits);
+
+        foreach (RaycastResult hit in _hits)
+        {
+            if (hit.gameObject.GetComponentInParent<Selectable>() != null) return true;
+        }
+        return false;
+    }
     private void Awake()    
     {
         _actions = new InputSystem_Actions();
@@ -40,8 +63,11 @@ public class TitleController : MonoBehaviour
     private void Update()
     {
         if (_sceneName == "TitleScene") return;
-        if(_inputAction.WasPressedThisFrame())
+        if (_howToPanel != null && _howToPanel.IsOpen) return;
+
+        if (_inputAction.WasPressedThisFrame())
         {
+            if (IsPointerOverButton()) return;
             ClickStart();
         }
     }
