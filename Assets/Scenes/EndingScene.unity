@@ -440,7 +440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba60e171b79a3af46ae5e59f79cc972f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e87f8eb3a8f2bbc4fa2b7280024d399e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1476,6 +1476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleController
   _sceneName: TitleScene
+  _howToPanel: {fileID: 0}
 --- !u!114 &1151003213
 MonoBehaviour:
   m_ObjectHideFlags: 0
