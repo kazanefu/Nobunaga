@@ -1,0 +1,15 @@
+{
+  "latest": {
+    "version": "1.2.0",
+    "assets": [
+      {
+        "name": "Nobunaga",
+        "url": "https://github.com/kazanefu/Nobunaga/releases/download/v1.2/v1.2.zip",
+        "type": "zip",
+        "sha256": "sha256:71a97de80d2823c7cb52218c5d0a3e8e9b3e68e02734e7e9f965c2ebfd526c99",
+        "entry_point": "Nobunaga.exe"
+      }
+    ],
+    "channel": "stable"
+  }
+}
